@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="btec-grade-calculator">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="//angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="app.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div ng-controller="ListCtrl" class="container">
+	<div class="row">
+		<button class="btn btn-primary" ng-click="addItem()">Add Item</button>
+	</div>
+	<div class="row">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items">
+          <td>{{item.name}}</td>
+          <td>{{item.value}}</td>
+          <td>
+          <button class="btn btn-small" ng-click="edit(item)">Edit</button>
+          <button class="btn btn-small btn-danger" ng-click="delete(item)">Delete</button>
+          </td>
+          <td>{{item.id}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
