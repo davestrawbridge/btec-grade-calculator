@@ -10,7 +10,7 @@
   <body>
     <div ng-controller="ListCtrl" class="container">
 	<div class="row">
-		<button class="btn btn-primary" ng-click="addItem()">Add Item</button>
+		<button class="btn btn-primary" ng-click="addunit()">Add unit</button>
 	</div>
 	<div class="row">
       <table class="table table-bordered table-striped">
@@ -23,14 +23,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in items">
-          <td>{{item.name}}</td>
-          <td>{{item.value}}</td>
+        <tr ng-repeat="unit in units">
+          <td>{{unit.name}}</td>
+          <td>{{unit.value}}</td>
           <td>
-          <button class="btn btn-small" ng-click="edit(item)">Edit</button>
-          <button class="btn btn-small btn-danger" ng-click="delete(item)">Delete</button>
+          <button class="btn btn-small" ng-click="edit(unit)">Edit</button>
+          <button class="btn btn-small btn-danger" ng-click="delete(unit)">Delete</button>
           </td>
-          <td>{{item.id}}</td>
+          <td>{{unit.id}}</td>
         </tr>
         </tbody>
       </table>

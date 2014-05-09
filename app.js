@@ -2,7 +2,7 @@ angular.module('btec-grade-calculator', ['ui.bootstrap']);
 
 function ListCtrl($scope, $dialog, $filter) {
   
-  $scope.items = [
+  $scope.units = [
     {name: 'foo', value: 'foo value', id: _.uniqueId()},
     {name: 'bar', value: 'bar value', id: _.uniqueId()},
     {name: 'baz', value: 'baz value', id: _.uniqueId()}
@@ -10,51 +10,51 @@ function ListCtrl($scope, $dialog, $filter) {
   
   var dialogOptions = {
     controller: 'EditCtrl',
-    templateUrl: 'itemEdit.html'
+    templateUrl: 'unitEdit.html'
   };
 
-  $scope.edit = function(item){
+  $scope.edit = function(unit){
     
-    var itemToEdit = item;
+    var unitToEdit = unit;
     
-    $dialog.dialog(angular.extend(dialogOptions, {resolve: {item: angular.copy(itemToEdit)}}))
+    $dialog.dialog(angular.extend(dialogOptions, {resolve: {unit: angular.copy(unitToEdit)}}))
       .open()
       .then(function(result) {
         if(result) {
-          angular.copy(result, itemToEdit);                
+          angular.copy(result, unitToEdit);                
         }
-        itemToEdit = undefined;
+        unitToEdit = undefined;
     });
   };
 
-  $scope.delete = function(item) {
-  		$scope.items = $filter('filter')($scope.items, function(x) { return x.id != item.id });
+  $scope.delete = function(unit) {
+  		$scope.units = $filter('filter')($scope.units, function(x) { return x.id != unit.id });
   }  
   
-  $scope.addItem = function() {
+  $scope.addunit = function() {
   	
-    var newItem = {name: 'item', value: 'item value', id: _.uniqueId()};
+    var newunit = {name: 'unit', value: 'unit value', id: _.uniqueId()};
     
-    $dialog.dialog(angular.extend(dialogOptions, {resolve: {item: angular.copy(newItem)}}))
+    $dialog.dialog(angular.extend(dialogOptions, {resolve: {unit: angular.copy(newunit)}}))
       .open()
       .then(function(result) {
         if(result) {
-          //angular.copy(result, newItem);
-          $scope.items.push(result);
+          //angular.copy(result, newunit);
+          $scope.units.push(result);
         }
-        itemToEdit = undefined;
+        unitToEdit = undefined;
     });
   }
 }
 
 // the dialog is injected in the specified controller
 
-function EditCtrl($scope, item, dialog){
+function EditCtrl($scope, unit, dialog){
   
-  $scope.item = item;
+  $scope.unit = unit;
   
   $scope.save = function() {
-    dialog.close($scope.item);
+    dialog.close($scope.unit);
   };
   
   $scope.close = function(){
