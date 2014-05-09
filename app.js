@@ -3,9 +3,8 @@ angular.module('btec-grade-calculator', ['ui.bootstrap']);
 function ListCtrl($scope, $dialog, $filter) {
   
   $scope.units = [
-    {name: 'foo', value: 'foo value', id: _.uniqueId()},
-    {name: 'bar', value: 'bar value', id: _.uniqueId()},
-    {name: 'baz', value: 'baz value', id: _.uniqueId()}
+    {name: 'maths', level: 2, units: 5, grade: 'P', id: _.uniqueId()},
+    {name: 'stats', level: 2, units: 5, grade: 'M', id: _.uniqueId()},
   ];
   
   var dialogOptions = {
@@ -33,7 +32,7 @@ function ListCtrl($scope, $dialog, $filter) {
   
   $scope.addunit = function() {
   	
-    var newunit = {name: 'unit', value: 'unit value', id: _.uniqueId()};
+    var newunit = {name: '', level: 3, units: 10, grade:'', id: _.uniqueId()};
     
     $dialog.dialog(angular.extend(dialogOptions, {resolve: {unit: angular.copy(newunit)}}))
       .open()

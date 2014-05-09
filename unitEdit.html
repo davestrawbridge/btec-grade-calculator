@@ -1,10 +1,27 @@
+<form role="form">
 <div class="modal-header">
   <h1>Edit {{unit.name}}</h1>
 </div>
 <div class="modal-body">
-  <p><input ng-model="unit.value" /></p>
+  <div class="form-group">
+    <label for="unitName">Name</label>
+    <input ng-model="unit.name" type="text" class="form-control" id="unitName" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="unitLevel">Level</label>
+    <input ng-model="unit.level" type="text" class="form-control" id="unitLevel">
+  </div>
+  <div class="form-group">
+    <label for="unitUnits">Number of Units</label>
+    <input ng-model="unit.units" type="text" class="form-control" id="unitUnits">
+  </div>
+  <div class="form-group">
+    <label for="unitGrade">Grade</label>
+    <input ng-model="unit.grade" type="text" class="form-control" id="unitGrade" placeholder="grade">
+  </div>
 </div>
 <div class="modal-footer">
   <button ng-click="save()" class="btn btn-primary" >Save</button>
-  <button ng-click="close()" class="btn" >close</button>
+  <button ng-click="close()" class="btn" >Close</button>
 </div>
+</form>
