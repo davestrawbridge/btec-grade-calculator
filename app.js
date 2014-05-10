@@ -1,6 +1,6 @@
 angular.module('btec-grade-calculator', ['ui.bootstrap']);
 
-function ListCtrl($scope, $dialog, $filter) {
+function ListCtrl($scope, $modal, $filter) {
   
   $scope.units = [
     {name: 'maths', level: 2, units: 5, grade: 'P', id: _.uniqueId()},
@@ -16,14 +16,18 @@ function ListCtrl($scope, $dialog, $filter) {
     
     var unitToEdit = unit;
     
-    $dialog.dialog(angular.extend(dialogOptions, {resolve: {unit: angular.copy(unitToEdit)}}))
-      .open()
+    $modal.open({
+    	templateUrl: 'unitEdit.html',
+    	controller: 'EditCtrl',
+    	resolve: {unit: angular.copy(unitToEdit)}
+		})
+    	
       .then(function(result) {
         if(result) {
           angular.copy(result, unitToEdit);                
         }
         unitToEdit = undefined;
-    });
+    	});
   };
 
   $scope.delete = function(unit) {
@@ -33,16 +37,20 @@ function ListCtrl($scope, $dialog, $filter) {
   $scope.addunit = function() {
   	
     var newunit = {name: '', level: 3, units: 10, grade:'', id: _.uniqueId()};
-    
-    $dialog.dialog(angular.extend(dialogOptions, {resolve: {unit: angular.copy(newunit)}}))
-      .open()
+
+    $modal.open({
+    	templateUrl: 'unitEdit.html',
+    	controller: 'EditCtrl',
+    	resolve: {unit: angular.copy(unitToEdit)}
+      })
+    	
       .then(function(result) {
         if(result) {
-          //angular.copy(result, newunit);
-          $scope.units.push(result);
+          angular.copy(result, unitToEdit);                
         }
         unitToEdit = undefined;
-    });
+    	});
+    
   }
 }
 
