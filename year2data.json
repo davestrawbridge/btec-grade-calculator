@@ -1,0 +1,56 @@
+[
+  {
+    "unit":5,
+    "unitName":"Perceptions",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":13,
+    "unitName":"Biochemistry",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":15,
+    "unitName":"Microbiology",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":18,
+    "unitName":"Genetics",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":19,
+    "unitName":"Chemistry",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":20,
+    "unitName":"Medical physics",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":36,
+    "unitName":"Fire invest",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":38,
+    "unitName":"Traffic invest",
+    "level":3,
+    "numberOfUnits":10
+  },
+  {
+    "unit":40,
+    "unitName":"Investigations",
+    "level":3,
+    "numberOfUnits":10
+  }
+]
