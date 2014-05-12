@@ -1,4 +1,19 @@
-angular.module('btec-grade-calculator', ['ui.bootstrap']);
+angular.module('btec-grade-calculator', ['ngRoute', 'ui.bootstrap', 'UserApp']).
+
+config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/login', {templateUrl: 'partials/login.html', login: true});
+	$routeProvider.when('/signup', {templateUrl: 'partials/signup.html', public: true});
+	$routeProvider.when('/verify-email', {templateUrl: 'partials/verify-email.html', verify_email: true});
+	$routeProvider.when('/reset-password', {templateUrl: 'partials/reset-password.html', public: true});
+	$routeProvider.when('/set-password', {templateUrl: 'partials/set-password.html', set_password: true});
+	$routeProvider.otherwise({redirectTo: '/', public: false});
+}])
+.run(function($rootScope, user) {
+	// Initiate the user service with your UserApp App Id
+	// https://help.userapp.io/customer/portal/articles/1322336-how-do-i-find-my-app-id-
+	user.init({ appId: '536674c0c9664' });
+});
+
 
 function ListCtrl($scope, $modal, $filter) {
   

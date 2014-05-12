@@ -1,7 +1,10 @@
 <!doctype html>
 <html ng-app="btec-grade-calculator">
   <head>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="//app.userapp.io/js/userapp.client.js"></script>
+	 <script src="//app.userapp.io/js/angularjs.userapp.js"></script>
     <script src="ui-bootstrap-tpls-0.11.0.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="app.js"></script>
@@ -9,6 +12,10 @@
   </head>
   <body>
     <div ng-controller="ListCtrl" class="container">
+    <div class="row"><h3 class="col-md-4">{{ user.first_name }}</h3></div>
+    <div class="row"><h3 class="col-md-4">{{ user.authenticated }}</h3></div>
+    
+    <div ng-view></div>
 	<div class="row">
 		<button class="btn btn-primary" ng-click="addunit()">Add unit</button>
 	</div>
